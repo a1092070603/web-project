@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.main{
+			display: inline-block;
+			margin-left: 10px;
+			width: 120px;
+		} 
+		/* 让.btn居中，也让.btn内部文字居中 */
+		.pbtn{
+			text-align: center;
+		}
+		/* 为.btn设置样式 */
+		.btn { 
+			height: 30px;
+			width: 70px;
+			background-color: #eee;
+			border-radius: 10px;
+			line-height: 30px;
+			vertical-align: middle;
+			display: inline-block;
+		}
+		/* 当.main触发hover时，.mcontent的display设置为inline-block */
+		.main:hover .mcontent{
+			display: inline-block;
+		}
+		/* 为.mcontent设置position:absolute使其脱离文档流，就不会影响到其他地方的布局了; */
+		.mcontent{
+			display: none;
+			position: absolute;
+			top:26px;
+		}
+		/* CSS实现箭头，vertical-align:middle是为了消除.jiantou与.content（悬浮菜单）之间的间隙 */
+		.jiantou {
+			width: 0px;
+			height: 0px;
+			border-width: 10px;
+			border-style: solid;
+			border-color: transparent transparent #eee transparent;
+			display: inline-block;
+			vertical-align: middle
+		}
+		/* 为悬浮菜单设置样式 */
+		.content {
+			width: 120px;
+			background-color: #eee;
+			padding: 10px 0px;
+			border-radius: 10px;
+		}
+		/* 为li设置样式*/
+		.content li{
+			padding-left: 20px;
+			height: 25px;
+		}
+		/* 去除ul默认设置的margin和padding， */
+		.content ul{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		/* 当li触发hover时，将background-color改成#C0C0C0 */
+		.content li:hover{
+			background-color: #C0C0C0;
+		}
+		/* 当li触发hover时，将a的color改成#fff */
+		.content li:hover a{
+			color: #fff;
+		}
+		/* 取消到链接样式 */
+		.content a{
+			text-decoration: none;
+			color: #333;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="main">
+		<div class="pbtn"><div class="btn">教程</div></div>
+		<div class="mcontent">
+			<div style="text-align: center;">
+				<div class="jiantou"></div>
+				</div>
+				<div class="content">
+					<div class="c2">
+						<ul>
+							<li><a href="">Python</a></li>
+							<li><a href="">Java</a></li>
+							<li><a href="">JavaScript</a></li>
+							<li><a href="">HTML/CSS</a></li>
+						</ul>
+					</div>
+				</div>
+		</div>
+	</div>
+	<br>
+	Hello World
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.jtp {
+			text-align: center;
+		}
+		.jiantou {
+			width: 0px;
+		    height: 0px;
+		    border-width: 10px;
+		    border-style: solid;
+		    /*transparent隐藏了其他3个三角形 */
+		    border-color: transparent transparent yellow transparent; 
+		    display: inline-block;
+		    vertical-align: middle;
+
+		}
+		.content {
+			width: 100px;
+		    height: 100px;
+		    background-color: yellow;
+		    /* word-break:break-all用于div内部文本自动换行 */
+		    word-break:break-all;
+		}
+	</style>
+</head>
+<body>
+	<div style="display: inline-block;width: 100px;">
+		<div class="jtp"><div class="jiantou"></div></div>
+		<div class="content">sdasdasdassadasdas你好你好你好你好你好你好你好你好你好你好你好你好</div>
+	</div>
+</body>
+</html>
