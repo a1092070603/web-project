@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>404</title>
+	<style>
+		.main {
+			margin-top: 10%;
+			text-align: center;
+		}
+		.text {
+			font-size: 18px;
+			vertical-align: top;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div><img width="500" src="404-logo.PNG" alt=""></div>
+		<div style="font-size: 20px;">
+			<span class="time">3</span>
+			<span class="text">s&nbsp后跳转至首页</span>	
+		</div>
+	</div>
+	
+	<script>
+		var ele = document.createElement('meta');
+		var	head_ele = document.getElementsByTagName('head')[0];
+		var timer = setInterval(timing,1000);
+		var time = 2;
+		var	show_time = document.querySelector('.time');
+		var url = "url=https://www.baidu.com/";
+		ele.setAttribute('http-equiv','Refresh');
+		ele.setAttribute('content','3;'+url);
+		head_ele.appendChild(ele);
+		function timing() {
+			show_time.innerText = time;
+			time >= 1?time -= 1:time = 0;
+		}
+	</script>
+</body>
+</html>

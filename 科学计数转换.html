@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+	</style>
+</head>
+<body>
+</body>
+<script>
+	var num = 12345678,
+		numStr = num.toString(),
+		arrStr = numStr.split('').reverse(),
+		len=Math.floor(arrStr.length/3);
+		m = arrStr.length%3;
+		result = [];
+	for(var i=0;i<len;i++){
+		var t = i*3;
+		result.push(','+arrStr[t+2]+arrStr[t+1]+arrStr[t]);
+	}
+	for(var i=m;i>=1;i--){
+		result.push(arrStr.slice(-i)[0]);
+	}
+	console.log(result.reverse().join(''))
+</script>
+</html>

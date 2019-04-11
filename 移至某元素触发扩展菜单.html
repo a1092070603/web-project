@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.main{
+			display: inline-block;
+			text-align: center;
+			height: 90px;
+			overflow: hidden;
+			background-color: #eee
+		}
+		.main div {
+			height: 30px;
+			width: 100px;		
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div id="d1">1</div>
+		<div id="d2">2</div>
+		<div id="d3">3</div>
+		<div id="d4">4</div>
+		<div id="d5">5</div>
+	</div>
+</body>
+<script>
+	var m = document.getElementsByClassName('main')[0],
+		d3 = document.getElementById('d3');
+	d3.addEventListener('mouseenter',function (e) {
+		m.style.height = '150px';
+		console.log('d3 enter');
+	})
+	m.addEventListener('mouseleave',function (e) {
+		m.style.height = '90px';
+		console.log('m leave');
+	})
+</script>
+</html>

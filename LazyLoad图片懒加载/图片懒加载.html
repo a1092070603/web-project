@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.d2 {
+			border: 2px solid blue;
+			width: 600px;
+			height: 200px;
+			position: fixed;
+		}
+		.d3 {
+			margin-top: 2px;
+			width: 600px;
+			height: 210px;
+			text-align: center;
+			display: inline-block;
+			font-size: 0px;
+		}
+	</style>
+</head>
+<body style="margin:0px;height: 2000px;background-color: #ccc;">
+	<div class="d1">
+		<div class="d2"></div>
+		<div class="d3">
+			<img height="200" src="img/img-1.webp">
+			<img height="200" data-src="img/img-2.webp">
+			<img height="200" data-src="img/img-3.webp">
+			<img height="200" data-src="img/img-4.webp">
+			<img height="200" data-src="img/img-5.webp">
+			<img height="200" data-src="img/img-6.webp">
+		</div>
+	</div>
+</body>
+<script>
+	var imgNode = document.querySelector('.d3').children;
+	var count = 1;
+	window.onscroll = function () {
+		var scrollTop = document.documentElement.scrollTop;
+		if(scrollTop >= 200*count && count<=5){
+			imgNode[count].setAttribute('src',imgNode[count].getAttribute('data-src'));
+			count+=1;	
+		}
+	}
+</script>
+</html>

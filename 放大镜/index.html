@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+    .main {
+        border: 1px solid #ccc;
+        display: inline-block;
+        width: 430px;
+        height: 430px;
+        font-size: 0px;
+        margin-left: 100px;
+        position: relative;
+    }
+
+    .magnifying {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        display: none;
+        background-image: url('http://gtms01.alicdn.com/tps/i4/T12pdtXaldXXXXXXXX-2-2.png')
+    }
+
+    .magnifying-iamge {
+		margin-left: 10px;
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        display: inline-block;
+        z-index: 999;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-image: url('MateBook 13.jpg');
+    	background-repeat:no-repeat;
+    	background-size: 645px 645px;
+    	display: none;
+    }
+    </style>
+</head>
+
+<body style="margin: 0px">
+    <div class="main">
+        <div class="magnifying"></div>
+        <img src="MateBook 13.jpg" alt="MateBook 13" class="image">
+	</div>
+    <div class="magnifying-iamge">
+    </div>
+</body>
+<script>
+var main = document.querySelector('.main');
+var image = document.querySelector('.image');
+var magnifying = document.querySelector('.magnifying');
+var magnifying_iamge = document.querySelector('.magnifying-iamge');
+var magnifyingX, magnifyingY;
+
+main.addEventListener('mousemove', function(e) {
+    var mainX = 100;
+    var mainY = 0;
+    magnifyingX = e.clientX - mainX;
+    magnifyingY = e.clientY - mainY;
+    var new_magnifying_left = '';
+    var new_magnifying_top = '';
+
+    if (magnifyingX < (430 - mainX) && magnifyingX > mainX) {
+        new_magnifying_left = (e.clientX - (mainX + 100)); // 100为小方框width的50%
+    }
+    if (magnifyingX <= 100) { // 100为小方框width的50%
+        new_magnifying_left = 0;
+    }
+    if (magnifyingX >= (430 - 100)) { // 100为小方框width的50%
+        new_magnifying_left = (430 - 200); // 200为小方框的width
+        // 430为整个父div的width，100为小方框width的50%
+    }
+
+    if (magnifyingY < (430 - mainY) && magnifyingY > mainY) {
+        new_magnifying_top = (e.clientY - (mainY + 100)); // 100为小方框height的50%
+    }
+    if (magnifyingY <= 100) { // 100为小方框height的50%
+        new_magnifying_top = 0;
+    }
+    if (magnifyingY >= (430 - 100)) { // 100为小方框height的50%
+        new_magnifying_top = (430 - 200); // 200为小方框的height
+        // 430为整个父div的height，100为小方框height的50%
+    }
+    magnifying_iamge.style.backgroundPosition = '-'+new_magnifying_left*1.5+'px '+'-'+new_magnifying_top*1.5+'px';
+    // 此处的1.5位放大的倍数
+    // 即.magnifying-iamge的background-size / .main的width和height = 645 / 430 = 1.5
+    magnifying.style.left = new_magnifying_left + "px";
+    magnifying.style.top = new_magnifying_top + "px";
+
+})
+main.addEventListener('mouseenter', function(e) {
+	magnifying_iamge.style.display = 'inline-block';
+    magnifying.style.display = 'inline-block';
+})
+main.addEventListener('mouseleave', function(e) {
+	magnifying_iamge.style.display = 'none';
+    magnifying.style.display = 'none'
+})
+</script>
+
+</html>
