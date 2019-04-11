@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		.d1 {
+			height: 200px;
+			width: 200px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body style="height: 1000px">
+	<div class="d1"></div>
+</body>
+<script>
+	var ele = document.querySelector('.d1');
+	
+	ele.addEventListener('click', function (e) {
+		fangdou()
+	})
+	var timer;
+	function fangdou() {
+		clearTimeout(timer);
+		timer = setTimeout(function () {
+			method()
+		},1000)
+	} 
+	function method() {
+		console.log('user stop');
+	}
+</script>
+</html>
